@@ -4,21 +4,15 @@ import _ from 'lodash'
 import PropTypes from "prop-types";
 
 //import mui components
-import TablePagination from "@material-ui/core/TablePagination";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableRow from "@material-ui/core/TableRow";
+import {Table, TablePagination, TableBody, TableCell, TableRow, Paper} from '@material-ui/core'; 
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-//import {Table, TablePagination, TableBody, TableCell, TableRow} from @material-ui/core 
 
 //import component
 import TableHeader from "./TableHeader";
 import TableToolbar from './Toolbar';
 
-import { onLoad } from './Utils/fetch-accounts';
-import config from './Utils/config';
+import { onLoad } from '../Utils/fetch-accounts';
+import config from '../Utils/config';
 
 const styles = theme => ({
   root: {
@@ -109,18 +103,18 @@ class App extends React.Component {
 		    })
       });
   }		
-//define sort direction/order
 
-handleSortRequest = (e, prop) => {
-  const orderBy = prop;
-  let order = "desc";
-  if (this.state.orderBy === prop && this.state.order === "desc") {
-    order = "asc";
-  }
-  this.setState({ order, orderBy });
-};
+  //define sort direction/order
+  handleSortRequest = (e, prop) => {
+    const orderBy = prop;
+    let order = "desc";
+    if (this.state.orderBy === prop && this.state.order === "desc") {
+      order = "asc";
+    }
+    this.setState({ order, orderBy });
+  };
 
-//   //handle any page changes  
+   //handle any page changes  
   handleChangePage = (e, page) => {
     this.setState({ page });
   };

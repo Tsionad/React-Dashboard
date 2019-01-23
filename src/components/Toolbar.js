@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 
 import { IconButton, InputBase, Toolbar, Tooltip, Typography, withStyles } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import RestoreIcon from "@material-ui/icons/Restore";
-import FilterListIcon from "@material-ui/icons/FilterList";
+//import RestoreIcon from "@material-ui/icons/Restore";
+//import FilterListIcon from "@material-ui/icons/FilterList";
 
-import toolbarStyles from "././StyledPanel";
+import toolbarStyles from "./StyledPanel";
 
 const TableToolbar = (props) => {
   const { classes, searchText, onSearchChanged} = props;
@@ -15,7 +15,7 @@ const TableToolbar = (props) => {
   return (
     <Toolbar className={classNames(classes.root, classes.highlight)}    >
       <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-        Account Dataset
+        Accounts Dataset
       </Typography> 
       <div className={classes.spacer} />
       <div className={classes.search}>
@@ -34,7 +34,7 @@ const TableToolbar = (props) => {
       />
       </div>
       
-      <div className={classes.actions} >
+     {/* <div className={classes.actions} >
           <Tooltip title="Filter list">
             <IconButton aria-label="Filter list">
               <FilterListIcon />
@@ -45,7 +45,7 @@ const TableToolbar = (props) => {
             <RestoreIcon />
           </IconButton>
         </Tooltip> 
-          </div> 
+      </div> */}
 
       
     </Toolbar>
