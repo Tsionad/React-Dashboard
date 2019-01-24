@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import toolbarStyles from "./StyledPanel";
 
 const TableToolbar = (props) => {
-  const { classes, searchText, onSearchChanged} = props;
+  const { classes, searchText, onSearchChanged } = props;
   
   return (
     <Toolbar className={classNames(classes.root, classes.highlight)}    >
@@ -34,15 +34,18 @@ const TableToolbar = (props) => {
       />
       </div>
       
-     {/* <div className={classes.actions} >
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
+       {/*<div className={classes.actions} >
+        <Tooltip title="Filter list">
+          <IconButton aria-label="Filter list">
+            <FilterListIcon />
             </IconButton>
           </Tooltip>
+      
           <Tooltip title="Reset">
           <IconButton aria-label="Restore">
-            <RestoreIcon />
+            <RestoreIcon 
+            onChange={onReset}
+            />
           </IconButton>
         </Tooltip> 
       </div> */}

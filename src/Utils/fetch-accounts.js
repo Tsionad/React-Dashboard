@@ -3,7 +3,7 @@ import config from "./config";
  * Load the data from the spreadsheet
  * Get the right values from it and assign.
  */
-export const onLoad = (cb) => {
+export const load = (cb) => {
   window.gapi.client.load("sheets", "v4", () => {
     window.gapi.client.sheets.spreadsheets.values
       .get({

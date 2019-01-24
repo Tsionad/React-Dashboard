@@ -11,7 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import TableHeader from "./TableHeader";
 import TableToolbar from './Toolbar';
 
-import { onLoad } from '../Utils/fetch-accounts';
+import { load } from '../Utils/fetch-accounts';
 import config from '../Utils/config';
 
 const styles = theme => ({
@@ -77,7 +77,6 @@ class App extends React.Component {
       page: 0,
       rowsPerPage: 10,
     }
-
 	}
   
 	componentDidMount() {
@@ -91,7 +90,7 @@ class App extends React.Component {
         })
         .then(() => {
         // Initialize and make the API request.
-          onLoad((data, error) => {
+          load((data, error) => {
 			      if (data) {
               let accounts = data.accounts
             //set up the global state
@@ -160,50 +159,49 @@ class App extends React.Component {
             displayData={displayData}
             //renderData={renderData}
             onSearchChanged={this.handleSearchRequest}
-            onResetTable={this.onResetTable}
           />
           <div className={classes.tableWrapper}>
-          <Table className={classes.table} aria-labelledby="tableTitle">
-            <TableHeader
-              order={order}
-              orderBy={orderBy}
-              onRequestSort={this.handleSortRequest}
-              rowCount={accounts.length}
-            />
-            <TableBody>
-              {onStableSort(displayData, onSort(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((displayData, index) => {
-                  return (
-                    <TableRow
-                      tabIndex={-1}
-                      key={index}
-                      style={{ fontSize: 16,  paddingRight: 10  }}
-                    >
-                      <TableCell component="th" scope="row" >
-                        {displayData.name}
-                      </TableCell>
-                      <TableCell align="left">
-                        {displayData.location}
-                      </TableCell>
-                      <TableCell align="left">
-                        {displayData.public}
-                      </TableCell>
-                      <TableCell align="left">
-                        {displayData.author}
-                      </TableCell>
-                      <TableCell align="center">
-                        {displayData.type}
-                      </TableCell>
-                      <TableCell align="left">
-                        {displayData.tags}
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </div>     
+            <Table className={classes.table} aria-labelledby="tableTitle">
+              <TableHeader
+                order={order}
+                orderBy={orderBy}
+                onRequestSort={this.handleSortRequest}
+                rowCount={accounts.length}
+              />
+              <TableBody>
+                {onStableSort(displayData, onSort(order, orderBy))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((displayData, index) => {
+                    return (
+                      <TableRow
+                        tabIndex={-1}
+                        key={index}
+                        style={{ fontSize: 16,  paddingRight: 10  }}
+                      >
+                        <TableCell component="th" scope="row" >
+                          {displayData.name}
+                        </TableCell>
+                        <TableCell align="left">
+                          {displayData.location}
+                        </TableCell>
+                        <TableCell align="left">
+                          {displayData.public}
+                        </TableCell>
+                        <TableCell align="left">
+                          {displayData.author}
+                        </TableCell>
+                        <TableCell align="center">
+                          {displayData.type}
+                        </TableCell>
+                        <TableCell align="left">
+                          {displayData.tags}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </div>     
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
