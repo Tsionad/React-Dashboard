@@ -20,6 +20,7 @@ const styledPanel = theme => ({
   spacer: {
     flex: "1 1 100%"
   },
+  
   actions: {
     paddingLeft: theme.spacing.unit,
     color: theme.palette.text.primary,

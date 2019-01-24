@@ -101,7 +101,7 @@ class App extends React.Component {
 			      }
 			    })
 		    })
-      });
+    });
   }		
 
   //define sort direction/order
@@ -180,11 +180,12 @@ class App extends React.Component {
                       key={index}
                       style={{ fontSize: 16,  paddingRight: 10  }}
                     >
-                    <TableCell component="th" scope="row" >
+                      <TableCell component="th" scope="row" >
                         {displayData.name}
-                    </TableCell>
-                      <TableCell align="left">{
-                        displayData.location}</TableCell>
+                      </TableCell>
+                      <TableCell align="left">
+                        {displayData.location}
+                      </TableCell>
                       <TableCell align="left">
                         {displayData.public}
                       </TableCell>
@@ -194,29 +195,30 @@ class App extends React.Component {
                       <TableCell align="center">
                         {displayData.type}
                       </TableCell>
-                      <TableCell align="left">{displayData.tags}</TableCell>
+                      <TableCell align="left">
+                        {displayData.tags}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
-              
             </TableBody>
           </Table>
         </div>     
           <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={displayData.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          backIconButtonProps={{
-            "aria-label": "Previous Page"
-          }}
-          nextIconButtonProps={{
-            "aria-label": "Next Page"
-          }}
-          onChangePage={this.handleChangePage}
-          onChangeRowsPerPage={this.handleChangeRowsPerPage}
-        />
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={displayData.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            backIconButtonProps={{
+              "aria-label": "Previous Page"
+            }}
+            nextIconButtonProps={{
+              "aria-label": "Next Page"
+            }}
+            onChangePage={this.handleChangePage}
+            onChangeRowsPerPage={this.handleChangeRowsPerPage}
+          />
       </Paper>
     );
   }

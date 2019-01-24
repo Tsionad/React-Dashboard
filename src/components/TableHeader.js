@@ -37,10 +37,7 @@ class TableHeader extends React.Component {
   };
 
   render() {
-    const {
-      order,
-      orderBy,
-    } = this.props;
+    const { order, orderBy} = this.props;
 
     return (
       <TableHead>
